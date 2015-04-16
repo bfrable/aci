@@ -1,0 +1,26 @@
+// bower:scss
+@import "vendors/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "vendors/neat/app/assets/stylesheets/_neat.scss";
+@import "vendors/reset-scss/reset.scss";
+@import "vendors/sass-mediaqueries/media-queries";
+// endbower
+
+@import 'base/base';
+
+@import 'layouts/layouts';
+
+@import 'components/components';
+
+body {
+	//overflow: hidden;
+}
+
+#canvas {
+	position: fixed;
+	height: 100%;
+}
+
+#canvas-content {
+	height: 80000px;
+}
+

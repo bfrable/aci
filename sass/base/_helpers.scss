@@ -1,0 +1,23 @@
+// fonts
+@mixin default($size, $line-height) {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: $size;
+	line-height: $line-height;
+}
+
+// animations
+@mixin animated($speed) {
+    transition: All $speed ease-in-out;
+    -webkit-transition: All $speed ease-in-out;
+    -moz-transition: All $speed ease-in-out;
+    -o-transition: All $speed ease-in-out;
+}
+
+// helpers
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

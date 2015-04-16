@@ -1,0 +1,28 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.0",
+  "homepage": "",
+  "authors": [
+    "Brett Frable <bfrable@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "~3.2.0",
+    "bourbon": "~4.2.0",
+    "neat": "~1.7.1",
+    "reset-scss": "*",
+    "jquery": "~2.1.3",
+    "sass-mediaqueries": "~1.4.0",
+    "requirejs": "~2.1.17",
+    "loglevel": "~1.2.0"
+  }
+}

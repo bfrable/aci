@@ -1,0 +1,19 @@
+body {
+  background: $body;
+  @include default(18px, inherit);
+  color: $text;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 20px;
+}

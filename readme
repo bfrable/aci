@@ -1,0 +1,8 @@
+1. NPM install.
+	1. Installs NPM Dependencies.
+2. Bower install. 
+	1. Installs vendors.
+3. Grunt server.
+	1. Starts PHP server on http://127.0.0.1:5000.
+	2. Watches for changes.
+	3. Runs build config. 
