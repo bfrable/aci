@@ -6,7 +6,7 @@ define(['jquery'],function ($) {
     init: function() {
 
       $(function() {
-        var canvas, context, currentFrame, loadImageSequence, loadedFrameCallback, render, renderCurrentFrame, resizeCanvas, sequence, totalFrames;
+        var canvas, context, currentFrame, loadImageSequence, loadedFrameCallback, render, renderCurrentFrame, resizeCanvas, sequence, totalFrames, showLoader, hideLoader;
 
         if ($('#background').length > 0) {
           
@@ -72,19 +72,33 @@ define(['jquery'],function ($) {
             }
             return sequence;
           };
-          
-          loadedFrameCallback = function(img) {
-            if (img.frame === 1) {
-              return render(img);
-            }
+
+          showLoader = function() {
+            $('canvas').hide();
+            $('#loader').fadeIn();
+          };
+
+          hideLoader = function() {
+            $('#loader').fadeOut();
+            $('canvas').fadeIn();
           };
           
+          loadedFrameCallback = function(img) {
+            showLoader();
+            if (img.frame === totalFrames) {
+              hideLoader();
+              return render(sequence[1]);
+            }
+          };
+
           sequence = loadImageSequence();
+
           $(window).resize(renderCurrentFrame);
           $(window).scroll(function() {
             return renderCurrentFrame();
           });
           return $(window).on('touchmove', renderCurrentFrame);
+
         }
       });
     }

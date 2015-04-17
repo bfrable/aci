@@ -76,3 +76,16 @@ body {
 
 #canvas-content {
   height: 80000px; }
+
+#loader {
+  position: absolute;
+  top: 0;
+  bottom: 0%;
+  left: 0;
+  right: 0%;
+  background: white url("http://www.pdnonline.com/static/structural_images/loading.gif") center center no-repeat;
+  z-index: 99;
+  display: none;
+  text-align: center;
+  width: 100%;
+  padding-top: 25px; }

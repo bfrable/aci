@@ -38,13 +38,11 @@ define(function (require) {
     return self;
 });;var require = {
     baseUrl: 'assets/scripts',
-    urlArgs: 'bust=' + (new Date()).getTime(),
     paths: {
         main: 'main',
         app: 'app',
         component: 'components',
         jquery: '../../vendors/jquery/dist/jquery',
-        scrollspeed: '../../assets/scripts/helpers/scrollspeed',
         loglevel: '../../vendors/loglevel/dist/loglevel.min'
     },
     shim: {

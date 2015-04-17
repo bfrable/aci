@@ -30,6 +30,8 @@
         <div id="canvas-content">
         </div>
 
+        <div id="loader"></div>
+
     </div>
 
     <?php include 'includes/footer.php'; ?>
