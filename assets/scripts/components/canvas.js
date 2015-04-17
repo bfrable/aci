@@ -75,11 +75,11 @@ define(['jquery'],function ($) {
 
           showLoader = function() {
             $('canvas').hide();
-            $('#loader').fadeIn();
+            $('#loader').show();
           };
 
           hideLoader = function() {
-            $('#loader').fadeOut();
+            $('#loader').hide();
             $('canvas').fadeIn();
           };
           
