@@ -62,7 +62,7 @@ define(['jquery'],function ($) {
             for (i = _i = 1; 1 <= totalFrames ? _i <= totalFrames : _i >= totalFrames; i = 1 <= totalFrames ? ++_i : --_i) {
               img = new Image();
               num = ("000" + i).slice(-3);
-              file = 'assets/images/Dandelion_' + num + ".jpg";
+              file = 'assets/images/canvas/Dandelion_' + num + ".jpg";
               img.src = file;
               img.frame = i;
               img.onload = function() {
@@ -87,10 +87,10 @@ define(['jquery'],function ($) {
           };
           
           loadedFrameCallback = function(img) {
-            showLoader();
-            if (img.frame === totalFrames) {
-              hideLoader();
-              return render(sequence[1]);
+            //showLoader();
+            if (img.frame === 1) { // OR totalFrames
+              //hideLoader();
+              return render(img); // OR sequence[1]
             }
           };
 

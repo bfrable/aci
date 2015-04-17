@@ -9,6 +9,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/animate.css/animate.css">
     <link rel="stylesheet" href="assets/build/styles/main.min.css">
 
   </head>
@@ -21,6 +22,10 @@
 
     <?php include 'includes/header.php'; ?>
 
+    <header>
+        <div class="logo"><h1><a href="#">ACI</a></h1></div>
+    </header>
+    
     <div id="main">
 
         <div id="canvas">
@@ -28,14 +33,16 @@
         </div>
 
         <div id="canvas-content">
-
-            
-
         </div>
 
         <div id="loader"></div>
 
     </div>
+
+
+    <footer>
+        <div class="upball"><h1><a href="#">UP</a></h1></div>
+    </footer>
 
     <?php include 'includes/footer.php'; ?>
 

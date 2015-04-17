@@ -10,7 +10,8 @@ define(function (require) {
 
     components.canvas = require('components/canvas');
     components.scrollspeed = require('components/scrollspeed');
-
+    components.helpers = require('components/helpers');
+    
     // API methods
     $.extend(self, {
 

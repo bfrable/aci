@@ -83,6 +83,54 @@ body {
   width: 100%;
   padding-top: 25px; }
 
+header {
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 0; }
+  header:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.logo {
+  float: right;
+  margin: 50px; }
+  .logo h1 {
+    background: transparent url("../../images/logo.png") 0 0 no-repeat;
+    width: 280px;
+    height: 44px; }
+  .logo a {
+    display: block;
+    text-indent: -8400px;
+    width: inherit;
+    height: inherit; }
+
+footer {
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  bottom: 0; }
+  footer:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.upball {
+  float: right;
+  margin: 50px;
+  width: 100px;
+  height: 100px; }
+  .upball h1 {
+    background: transparent url("../../images/upball.png") 0 0 no-repeat;
+    background-size: contain;
+    height: 217px; }
+  .upball a {
+    display: block;
+    text-indent: -8400px;
+    width: inherit;
+    height: inherit; }
+
 #canvas {
   position: fixed;
   height: 100%; }

@@ -1,0 +1,25 @@
+footer {
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  @include clearfix;
+}
+
+.upball {
+  float: right;
+  margin: 50px;
+  width: 100px;
+  height: 100px;
+  h1 {
+    background: transparent url('../../images/upball.png') 0 0 no-repeat;
+    background-size: contain;
+    height: 217px; 
+  }
+  a {
+    display: block;
+    text-indent: -8400px;
+    width: inherit;
+    height: inherit;
+  }
+}

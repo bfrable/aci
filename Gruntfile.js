@@ -52,7 +52,7 @@ module.exports = function(grunt) {
         livereload: true,
       },
       js: {
-        files: ['assets/scripts/*.js'],
+        files: ['assets/scripts/*.js', 'assets/scripts/components/*.js'],
         tasks: ['concat', 'uglify']
       },
       css: {
