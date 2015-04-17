@@ -28,14 +28,14 @@ define(['jquery'],function ($) {
           sequence = [];
 
           showPanels = function() {
-            if (currentFrame === 1 || currentFrame === 96 && $('.panel.one').is(':hidden')) {
+            if (currentFrame === 1 && $('.panel.one').is(':hidden') || currentFrame === 96 && $('.panel.one').is(':hidden')) {
                 console.log('test');
                 $('.panel').hide();
                 $('.panel.one').fadeIn();
-            } else if (currentFrame === 97 || currentFrame === 193 && $('.panel.two').is(':hidden')) {
+            } else if (currentFrame === 97 && $('.panel.two').is(':hidden') || currentFrame === 193 && $('.panel.two').is(':hidden')) {
               $('.panel').hide();
               $('.panel.two').fadeIn();
-            } else if (currentFrame === 194 || currentFrame === 290 && $('.panel.three').is(':hidden')) {
+            } else if (currentFrame === 194 && $('.panel.three').is(':hidden') || currentFrame === 290 && $('.panel.three').is(':hidden')) {
               $('.panel').hide();
               $('.panel.three').fadeIn();
             } else if (currentFrame === 291 && $('.panel.four').is(':hidden')) {
