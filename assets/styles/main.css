@@ -70,13 +70,6 @@ body {
   margin: 0 auto;
   padding: 0 20px; }
 
-#canvas {
-  position: fixed;
-  height: 100%; }
-
-#canvas-content {
-  height: 80000px; }
-
 #loader {
   position: absolute;
   top: 0;
@@ -89,3 +82,10 @@ body {
   text-align: center;
   width: 100%;
   padding-top: 25px; }
+
+#canvas {
+  position: fixed;
+  height: 100%; }
+
+#canvas-content {
+  height: 56000px; }

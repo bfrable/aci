@@ -17,3 +17,18 @@ body {
 	margin: 0 auto;
 	padding: 0 20px;
 }
+
+#loader {
+  position: absolute;
+  top: 0;
+  bottom: 0%;
+  left: 0;
+  right: 0%;
+  background: #ffffff url('http://www.pdnonline.com/static/structural_images/loading.gif') center center no-repeat;
+  z-index: 99;
+  display: none;
+  text-align: center;
+  width: 100%;
+  padding-top: 25px;
+}
+

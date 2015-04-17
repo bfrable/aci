@@ -101,7 +101,7 @@ define(['jquery'],function ($) {
 
 
       $('#main').delay(1000);
-      $.scrollSpeed(75, 500);
+      $.scrollSpeed(75, 2000);
     }
   };
 });

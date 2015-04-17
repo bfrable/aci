@@ -24,7 +24,7 @@ define(['jquery'],function ($) {
           canvas = document.getElementById('background');
           context = canvas.getContext('2d');
           currentFrame = 1;
-          totalFrames = 537;
+          totalFrames = 388;
           sequence = [];
           
           renderCurrentFrame = function() {
@@ -75,6 +75,9 @@ define(['jquery'],function ($) {
 
           showLoader = function() {
             $('canvas').hide();
+            $(document).ready(function () {
+                window.scrollTo(0,0);
+            });
             $('#loader').show();
           };
 
