@@ -10,6 +10,15 @@
   width: 100%;
   top: 0;
   color: #ffffff;
+  
+  &.show {
+    display: block;
+  }
+
+  &.hide {
+    display: none;
+  }
+  
   .popout-box {
     display: none;
   }

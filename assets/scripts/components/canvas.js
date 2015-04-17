@@ -6,7 +6,7 @@ define(['jquery'],function ($) {
     init: function() {
 
       $(function() {
-        var canvas, context, currentFrame, loadImageSequence, loadedFrameCallback, render, renderCurrentFrame, resizeCanvas, sequence, totalFrames, showLoader, hideLoader;
+        var canvas, context, currentFrame, loadImageSequence, loadedFrameCallback, render, renderCurrentFrame, resizeCanvas, sequence, totalFrames, showLoader, hideLoader, showPanels;
 
         if ($('#background').length > 0) {
           
@@ -26,14 +26,33 @@ define(['jquery'],function ($) {
           currentFrame = 1;
           totalFrames = 388;
           sequence = [];
+
+          showPanels = function() {
+            if (currentFrame === 1 || currentFrame === 96 && $('.panel.one').is(':hidden')) {
+                console.log('test');
+                $('.panel').hide();
+                $('.panel.one').fadeIn();
+            } else if (currentFrame === 97 || currentFrame === 193 && $('.panel.two').is(':hidden')) {
+              $('.panel').hide();
+              $('.panel.two').fadeIn();
+            } else if (currentFrame === 194 || currentFrame === 290 && $('.panel.three').is(':hidden')) {
+              $('.panel').hide();
+              $('.panel.three').fadeIn();
+            } else if (currentFrame === 291 && $('.panel.four').is(':hidden')) {
+              $('.panel').hide();
+              $('.panel.four').fadeIn();
+            }
+          };
           
           renderCurrentFrame = function() {
             var offset;
             offset = $(window).scrollTop();
             currentFrame = Math.round(offset / 140);
+            
             if (currentFrame >= totalFrames) {
               currentFrame = totalFrames - 1;
             }
+            showPanels();
             return render(sequence[currentFrame]);
           };
           

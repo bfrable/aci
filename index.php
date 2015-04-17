@@ -34,8 +34,7 @@
 
         <div id="canvas-content">
 
-            <div class="panel one animated fadeIn">
-                
+            <div class="panel one hide">
                 <div class="popout">
                     <div class="dot">+</div>
                     <div class="popout-box">
@@ -48,8 +47,55 @@
                         </ul>
                     </div>
                 </div>
-
                 <h2>Its time to turn susceptible into secure.</h2>
+            </div>
+
+            <div class="panel two hide">
+                <div class="popout">
+                    <div class="dot">+</div>
+                    <div class="popout-box">
+                        <h3>Real Time Fraud Protection and Prevention.</h3>
+                        <p>Abnormal behavioral traits are identified to stop transactions before they are completed.</p>
+
+                        <ul class="links">
+                            <li><a href="#">Learn More</a></li>
+                            <li><a href="#">Related Link</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h2>Its time to turn susceptible into secure 2.</h2>
+            </div>
+
+            <div class="panel three hide">
+                <div class="popout">
+                    <div class="dot">+</div>
+                    <div class="popout-box">
+                        <h3>Real Time Fraud Protection and Prevention.</h3>
+                        <p>Abnormal behavioral traits are identified to stop transactions before they are completed.</p>
+
+                        <ul class="links">
+                            <li><a href="#">Learn More</a></li>
+                            <li><a href="#">Related Link</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h2>Its time to turn susceptible into secure 3.</h2>
+            </div>
+
+            <div class="panel four hide">
+                <div class="popout">
+                    <div class="dot">+</div>
+                    <div class="popout-box">
+                        <h3>Real Time Fraud Protection and Prevention.</h3>
+                        <p>Abnormal behavioral traits are identified to stop transactions before they are completed.</p>
+
+                        <ul class="links">
+                            <li><a href="#">Learn More</a></li>
+                            <li><a href="#">Related Link</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h2>Its time to turn susceptible into secure 4.</h2>
             </div>
 
         </div>

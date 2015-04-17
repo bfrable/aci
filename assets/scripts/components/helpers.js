@@ -14,7 +14,6 @@ define(['jquery'],function ($) {
       $(window).resize(function() {
         $('.panel').height($(window).height());
       });
-
     }
   };
 });

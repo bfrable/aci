@@ -150,6 +150,10 @@ footer {
   width: 100%;
   top: 0;
   color: #ffffff; }
+  .panel.show {
+    display: block; }
+  .panel.hide {
+    display: none; }
   .panel .popout-box {
     display: none; }
   .panel h2 {
