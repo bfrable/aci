@@ -9,6 +9,12 @@ define(['jquery'],function ($) {
         $(this).toggleClass('animated bounce');
       });
 
+      $('.panel').height($(window).height());
+
+      $(window).resize(function() {
+        $('.panel').height($(window).height());
+      });
+
     }
   };
 });

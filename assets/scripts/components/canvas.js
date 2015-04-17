@@ -38,7 +38,7 @@ define(['jquery'],function ($) {
           };
           
           render = function(img) {
-            var h, videoAspectRatio, videoHeight, videoWidth, w, windowAspectRatio, windowHeight, windowWidth, x;
+            var h, videoAspectRatio, videoHeight, videoWidth, w, windowAspectRatio, windowHeight, windowWidth, x, y;
             windowWidth = $(window).width();
             windowHeight = $(window).height();
             windowAspectRatio = windowWidth / windowHeight;
@@ -53,7 +53,8 @@ define(['jquery'],function ($) {
               h = windowHeight;
             }
             x = -(w - windowWidth) / 2;
-            return context.drawImage(img, x, 0, w, h);
+            y = -(h - windowHeight) / 2;
+            return context.drawImage(img, x, y, w, h);
           };
           
           loadImageSequence = function() {
@@ -75,9 +76,6 @@ define(['jquery'],function ($) {
 
           showLoader = function() {
             $('canvas').hide();
-            $(document).ready(function () {
-                window.scrollTo(0,0);
-            });
             $('#loader').show();
           };
 
@@ -88,6 +86,8 @@ define(['jquery'],function ($) {
           
           loadedFrameCallback = function(img) {
             //showLoader();
+            window.scrollTo(0,0);
+            
             if (img.frame === 1) { // OR totalFrames
               //hideLoader();
               return render(img); // OR sequence[1]

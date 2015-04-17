@@ -1,0 +1,38 @@
+#canvas-content {
+  position: relative;
+  max-width: 1110px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.panel {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  color: #ffffff;
+  .popout-box {
+    display: none;
+  }
+
+  h2 {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    max-width: 1110px;
+    text-align: center;
+  }
+
+  .dot {
+    display: block;
+    background: #1c87c9;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 25px;
+    padding: 3px 0 0;
+    position: absolute;
+    top: 30%;
+    left: 300px;
+    cursor: pointer;
+  }
+}
