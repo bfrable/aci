@@ -99,7 +99,7 @@ define(['jquery'],function ($) {
 
       })(jQuery);
 
-      //$.scrollSpeed(75, 2000);
+      $.scrollSpeed(75, 2000);
     }
   };
 });

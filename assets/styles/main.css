@@ -220,7 +220,8 @@ section#info {
   top: 0;
   color: #ffffff; }
   .panel.one {
-    margin-bottom: 2370px; }
+    margin-bottom: 2370px;
+    margin-top: 500px; }
   .panel.two {
     margin-bottom: 1000px; }
   .panel.three {
@@ -241,10 +242,8 @@ section#info {
 .popout {
   position: fixed;
   width: 24%;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 20px;
   color: #ffffff;
-  display: block; }
+  display: none; }
   .popout.one {
     margin: 50px 0 0 0px;
     left: 10px;
@@ -264,7 +263,10 @@ section#info {
   .popout a {
     color: #1c87c9;
     text-transform: uppercase;
-    font-size: 13px; }
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 3px solid #1c87c9;
+    padding-right: 10px; }
   .popout h3 {
     color: #1c87c9;
     text-transform: uppercase;
@@ -295,3 +297,8 @@ section#info {
   top: 30%;
   left: 300px;
   cursor: pointer; }
+
+.popout-box {
+  display: none;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px; }

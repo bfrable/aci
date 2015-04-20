@@ -6,7 +6,7 @@ define(['jquery'],function ($) {
     init: function() {
 
       $(function() {
-        var canvas, context, currentFrame, loadImageSequence, loadedFrameCallback, render, renderCurrentFrame, resizeCanvas, sequence, totalFrames, showLoader, hideLoader, showPanels;
+        var canvas, context, currentFrame, loadImageSequence, loadedFrameCallback, render, renderCurrentFrame, resizeCanvas, sequence, totalFrames, showLoader, hideLoader, showPopups;
 
         if ($('#background').length > 0) {
           
@@ -27,38 +27,24 @@ define(['jquery'],function ($) {
           totalFrames = 388;
           sequence = [];
 
-          showPanels = function() {
+          showPopups = function() {
+            if (currentFrame < 180 || currentFrame > 330) {
+              $('.popout').fadeOut();
+            }
 
-            var exit   = 'animated slideOutUp',
-                enter  = 'animated slideInUp',
-                active = 'active';
+            if (currentFrame >= 180 && currentFrame <=210 && $('.popout.one').is(':hidden')) {    
+              $('.popout').fadeOut();
+              $('.popout.one').fadeIn(); 
+            }
 
-            if (currentFrame === 1 && $('.panel.one').is(':hidden') || currentFrame === 96 && $('.panel.one').is(':hidden')) {
-                
-                $('.panel').hide().removeClass(exit).removeClass(enter).removeClass(active);
-                $('.panel.one').fadeIn().addClass(enter).addClass(active);
+            if (currentFrame >= 210 && currentFrame <= 280 && $('.popout.two').is(':hidden')) {
+              $('.popout').fadeOut();
+              $('.popout.two').fadeIn(); 
+            }
 
-            } else if (currentFrame === 97 && $('.panel.two').is(':hidden') || currentFrame === 193 && $('.panel.two').is(':hidden')) {
-
-              $('.panel.active').removeClass(enter).addClass(exit).removeClass(active);
-              
-              $('.panel').hide().removeClass(exit);
-              $('.panel.two').fadeIn().addClass(enter).addClass(active);
-            
-            } else if (currentFrame === 194 && $('.panel.three').is(':hidden') || currentFrame === 290 && $('.panel.three').is(':hidden')) {
-            
-              $('.panel.active').removeClass(enter).addClass(exit);
-              
-              $('.panel').hide().removeClass(exit);
-              $('.panel.three').fadeIn().addClass(enter).addClass(active);
-
-            } else if (currentFrame === 291 && $('.panel.four').is(':hidden')) {
-
-              $('.panel.active').removeClass(enter).addClass(exit);
-              
-              $('.panel').hide().removeClass(exit);
-              $('.panel.four').fadeIn().addClass(enter).addClass(active);
-
+            if (currentFrame >= 280 && currentFrame <= 330 && $('.popout.three').is(':hidden')) {
+              $('.popout').fadeOut();
+              $('.popout.three').fadeIn();
             }
           };
           
@@ -70,7 +56,7 @@ define(['jquery'],function ($) {
             if (currentFrame >= totalFrames) {
               currentFrame = totalFrames - 1;
             }
-            //showPanels();
+            showPopups();
             return render(sequence[currentFrame]);
           };
           
