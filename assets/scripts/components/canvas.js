@@ -28,19 +28,37 @@ define(['jquery'],function ($) {
           sequence = [];
 
           showPanels = function() {
+
+            var exit   = 'animated slideOutUp',
+                enter  = 'animated slideInUp',
+                active = 'active';
+
             if (currentFrame === 1 && $('.panel.one').is(':hidden') || currentFrame === 96 && $('.panel.one').is(':hidden')) {
-                console.log('test');
-                $('.panel').hide();
-                $('.panel.one').fadeIn();
+                
+                $('.panel').hide().removeClass(exit).removeClass(enter).removeClass(active);
+                $('.panel.one').fadeIn().addClass(enter).addClass(active);
+
             } else if (currentFrame === 97 && $('.panel.two').is(':hidden') || currentFrame === 193 && $('.panel.two').is(':hidden')) {
-              $('.panel').hide();
-              $('.panel.two').fadeIn();
+
+              $('.panel.active').removeClass(enter).addClass(exit).removeClass(active);
+              
+              $('.panel').hide().removeClass(exit);
+              $('.panel.two').fadeIn().addClass(enter).addClass(active);
+            
             } else if (currentFrame === 194 && $('.panel.three').is(':hidden') || currentFrame === 290 && $('.panel.three').is(':hidden')) {
-              $('.panel').hide();
-              $('.panel.three').fadeIn();
+            
+              $('.panel.active').removeClass(enter).addClass(exit);
+              
+              $('.panel').hide().removeClass(exit);
+              $('.panel.three').fadeIn().addClass(enter).addClass(active);
+
             } else if (currentFrame === 291 && $('.panel.four').is(':hidden')) {
-              $('.panel').hide();
-              $('.panel.four').fadeIn();
+
+              $('.panel.active').removeClass(enter).addClass(exit);
+              
+              $('.panel').hide().removeClass(exit);
+              $('.panel.four').fadeIn().addClass(enter).addClass(active);
+
             }
           };
           
@@ -52,7 +70,7 @@ define(['jquery'],function ($) {
             if (currentFrame >= totalFrames) {
               currentFrame = totalFrames - 1;
             }
-            showPanels();
+            //showPanels();
             return render(sequence[currentFrame]);
           };
           
@@ -82,7 +100,7 @@ define(['jquery'],function ($) {
             for (i = _i = 1; 1 <= totalFrames ? _i <= totalFrames : _i >= totalFrames; i = 1 <= totalFrames ? ++_i : --_i) {
               img = new Image();
               num = ("000" + i).slice(-3);
-              file = 'assets/images/canvas/Dandelion_' + num + ".jpg";
+              file = 'assets/images/canvas/Fraud_' + num + ".jpg";
               img.src = file;
               img.frame = i;
               img.onload = function() {
@@ -105,10 +123,10 @@ define(['jquery'],function ($) {
           
           loadedFrameCallback = function(img) {
             //showLoader();
-            window.scrollTo(0,0);
             
             if (img.frame === 1) { // OR totalFrames
               //hideLoader();
+              window.scrollTo(0,0);
               return render(img); // OR sequence[1]
             }
           };

@@ -52,7 +52,7 @@ table {
   border-spacing: 0; }
 
 body {
-  background: white;
+  background: #f2f2f2;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: inherit;
@@ -83,6 +83,9 @@ body {
   width: 100%;
   padding-top: 25px; }
 
+h2, h3, h4 {
+  font-weight: 900; }
+
 header {
   position: fixed;
   z-index: 1;
@@ -92,19 +95,18 @@ header {
     content: "";
     display: table;
     clear: both; }
-
-.logo {
-  float: right;
-  margin: 50px; }
-  .logo h1 {
-    background: transparent url("../../images/logo.png") 0 0 no-repeat;
-    width: 280px;
-    height: 44px; }
-  .logo a {
-    display: block;
-    text-indent: -8400px;
-    width: inherit;
-    height: inherit; }
+  header .logo {
+    float: right;
+    margin: 50px; }
+    header .logo h1 {
+      background: transparent url("../../images/logo.png") 0 0 no-repeat;
+      width: 280px;
+      height: 44px; }
+    header .logo a {
+      display: block;
+      text-indent: -8400px;
+      width: inherit;
+      height: inherit; }
 
 footer {
   position: fixed;
@@ -131,6 +133,73 @@ footer {
     width: inherit;
     height: inherit; }
 
+section#info {
+  background: transparent url("../../images/header.png") 0 0 no-repeat;
+  background-size: 100%;
+  padding: 55% 115px 50px; }
+  section#info:after {
+    content: "";
+    display: table;
+    clear: both; }
+  section#info .wrapper {
+    max-width: 905px;
+    width: 100%;
+    overflow: auto; }
+  section#info .logo h1 {
+    background: transparent url("../../images/logo.png") 0 0 no-repeat;
+    width: 280px;
+    height: 44px; }
+  section#info .logo a {
+    display: block;
+    text-indent: -8400px;
+    width: inherit;
+    height: inherit; }
+  section#info .mission-statement {
+    width: 100%;
+    max-width: 770px;
+    text-align: left;
+    color: #1c87c9;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    line-height: 40px;
+    margin: 95px 0 145px; }
+  section#info .content {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%; }
+    section#info .content:last-child {
+      margin-right: 0; }
+    section#info .content h3 {
+      margin: 0 0 14px; }
+    section#info .content h3 + p {
+      margin: 0 0 42px; }
+    section#info .content table {
+      margin: 30px 0 58px;
+      font-size: 13px; }
+      section#info .content table tr {
+        border-top: 1px solid #000; }
+        section#info .content table tr:first-child {
+          border-top: none; }
+          section#info .content table tr:first-child td:first-child {
+            border-right: none; }
+          section#info .content table tr:first-child td {
+            font-weight: 900; }
+        section#info .content table tr td {
+          padding: 12px; }
+          section#info .content table tr td:first-child {
+            border-right: 1px solid #000;
+            width: 10%;
+            padding: 12px 12px 12px 0;
+            font-weight: 900; }
+  section#info .connect {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    section#info .connect:last-child {
+      margin-right: 0; }
+
 #canvas {
   position: fixed;
   bottom: 0;
@@ -146,31 +215,83 @@ footer {
   margin: 0 auto; }
 
 .panel {
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0;
   color: #ffffff; }
-  .panel.show {
-    display: block; }
-  .panel.hide {
-    display: none; }
-  .panel .popout-box {
-    display: none; }
+  .panel.one {
+    margin-bottom: 2370px; }
+  .panel.two {
+    margin-bottom: 1000px; }
+  .panel.three {
+    margin-top: -1000px; }
+  .panel.four {
+    margin-bottom: 4000px; }
+  .panel.five {
+    margin-top: -4000px; }
   .panel h2 {
     position: absolute;
     bottom: 5%;
     width: 100%;
     max-width: 1110px;
+    color: #1c87c9;
+    text-transform: uppercase;
     text-align: center; }
-  .panel .dot {
-    display: block;
-    background: #1c87c9;
-    width: 25px;
-    height: 25px;
-    text-align: center;
-    border-radius: 25px;
-    padding: 3px 0 0;
-    position: absolute;
-    top: 30%;
-    left: 300px;
-    cursor: pointer; }
+
+.popout {
+  position: fixed;
+  width: 24%;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  color: #ffffff;
+  display: block; }
+  .popout.one {
+    margin: 50px 0 0 0px;
+    left: 10px;
+    top: 150px; }
+    .popout.one .dot {
+      left: 105%;
+      top: 0; }
+  .popout.two {
+    left: 75%;
+    top: 170px; }
+  .popout.three {
+    left: 75%;
+    top: 420px; }
+  .popout.two .dot, .popout.three .dot {
+    left: -40px;
+    top: 50px; }
+  .popout a {
+    color: #1c87c9;
+    text-transform: uppercase;
+    font-size: 13px; }
+  .popout h3 {
+    color: #1c87c9;
+    text-transform: uppercase;
+    margin: 0 0 15px; }
+  .popout p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 100; }
+  .popout .links {
+    margin: 50px 0 0; }
+    .popout .links li {
+      display: inline-block;
+      padding: 0 0 0 15px;
+      color: #1c87c9; }
+      .popout .links li:first-child {
+        padding-left: 0; }
+
+.dot {
+  display: block;
+  background: #1c87c9;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  border-radius: 25px;
+  padding: 3px 0 0;
+  position: absolute;
+  top: 30%;
+  left: 300px;
+  cursor: pointer; }

@@ -4,20 +4,20 @@ header {
   right: 0;
   top: 0;
   @include clearfix;
-}
 
-.logo {
-  float: right;
-  margin: 50px;
-  h1 {
-    background: transparent url('../../images/logo.png') 0 0 no-repeat;
-    width: 280px;
-    height: 44px; 
-  }
-  a {
-    display: block;
-    text-indent: -8400px;
-    width: inherit;
-    height: inherit;
+  .logo {
+    float: right;
+    margin: 50px;
+    h1 {
+      background: transparent url('../../images/logo.png') 0 0 no-repeat;
+      width: 280px;
+      height: 44px; 
+    }
+    a {
+      display: block;
+      text-indent: -8400px;
+      width: inherit;
+      height: inherit;
+    }
   }
 }

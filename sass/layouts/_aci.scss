@@ -1,0 +1,79 @@
+section#info {
+  background: transparent url('../../images/header.png') 0 0 no-repeat;
+  background-size: 100%;
+  padding: 55% 115px 50px;
+  @include clearfix;
+  
+  .wrapper {
+    max-width: 905px;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .logo { 
+    h1 {
+      background: transparent url('../../images/logo.png') 0 0 no-repeat;
+      width: 280px;
+      height: 44px; 
+    }
+    a {
+      display: block;
+      text-indent: -8400px;
+      width: inherit;
+      height: inherit;
+    }
+  }
+
+  .mission-statement {
+    width: 100%;
+    max-width: 770px;
+    text-align: left;
+    color: #1c87c9;
+    @include default(28px, 40px);
+    margin: 95px 0 145px;
+  }
+
+  .content {
+    @include span-columns(8);
+    
+    h3 {
+      margin: 0 0 14px;
+    }
+
+    h3 + p {
+      margin: 0 0 42px;
+    }
+
+    table {
+      margin: 30px 0 58px;
+      font-size: 13px;
+      tr {
+        border-top: 1px solid #000;
+        &:first-child {
+          border-top: none;
+          td:first-child {
+            border-right: none;
+          }
+          td {
+            font-weight: 900;
+          }
+        }
+        td {
+          padding: 12px;
+          &:first-child {
+            border-right: 1px solid #000;
+            width: 10%;
+            padding: 12px 12px 12px 0;
+            font-weight: 900;
+          }
+        }
+      }
+    }
+
+  }
+
+  .connect {
+    @include span-columns(4);
+  }
+}
+

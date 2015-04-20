@@ -6,21 +6,29 @@
 }
 
 .panel {
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0;
   color: #ffffff;
-  
-  &.show {
-    display: block;
+
+  &.one {
+    margin-bottom: 2370px;
   }
 
-  &.hide {
-    display: none;
+  &.two {
+    margin-bottom: 1000px;
   }
-  
-  .popout-box {
-    display: none;
+
+  &.three {
+    margin-top: -1000px;
+  }
+
+  &.four {
+    margin-bottom: 4000px;
+  }
+
+  &.five {
+    margin-top: -4000px;
   }
 
   h2 {
@@ -28,20 +36,8 @@
     bottom: 5%;
     width: 100%;
     max-width: 1110px;
+    color: #1c87c9;
+    text-transform: uppercase;
     text-align: center;
-  }
-
-  .dot {
-    display: block;
-    background: #1c87c9;
-    width: 25px;
-    height: 25px;
-    text-align: center;
-    border-radius: 25px;
-    padding: 3px 0 0;
-    position: absolute;
-    top: 30%;
-    left: 300px;
-    cursor: pointer;
   }
 }
