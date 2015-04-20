@@ -11,6 +11,14 @@ define(['jquery'],function ($) {
 
       $('.panel').height($(window).height());
 
+      $(window).scroll(function () { 
+
+         $('.panel').css({
+            'top' : ($(this).scrollTop()/1.2)+"px"
+         }); 
+
+      });
+
       $(window).resize(function() {
         $('.panel').height($(window).height());
       });
