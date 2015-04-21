@@ -116,14 +116,14 @@ define(['jquery'],function ($) {
         i_touchlistener: 'body',         // element to monitor for touches, set to null to use document. Otherwise use quotes. Eg. '.myElement'. Note: if the finger leaves this listener while still touching, movement is stopped.
         i_scrollElement: 'body',         // element (class) to be scrolled on touch movement
         i_duration: window.innerHeight * 1.5, // (ms) duration of the inertial scrolling simulation. Devices with larger screens take longer durations (phone vs tablet is around 500ms vs 1500ms). This is a fixed value and does not influence speed and amount of momentum.
-        i_speedLimit: .2,                      // set maximum speed. Higher values will allow faster scroll (which comes down to a bigger offset for the duration of the momentum scroll) note: touch motion determines actual speed, this is just a limit.
+        i_speedLimit: 1.2,                      // set maximum speed. Higher values will allow faster scroll (which comes down to a bigger offset for the duration of the momentum scroll) note: touch motion determines actual speed, this is just a limit.
         i_handleY: true,                     // should scroller handle vertical movement on element?
-        i_handleX: false,                     // should scroller handle horizontal movement on element?
-        i_moveThreshold: 10,                      // (ms) determines if a swipe occurred: time between last updated movement @ touchmove and time @ touchend, if smaller than this value, trigger inertial scrolling
+        i_handleX: true,                     // should scroller handle horizontal movement on element?
+        i_moveThreshold: 100,                      // (ms) determines if a swipe occurred: time between last updated movement @ touchmove and time @ touchend, if smaller than this value, trigger inertial scrolling
         i_offsetThreshold: 30,                       // (px) determines, together with i_offsetThreshold if a swipe occurred: if calculated offset is above this threshold
         i_startThreshold: 5,                        // (px) how many pixels finger needs to move before a direction (horizontal or vertical) is chosen. This will make the direction detection more accurate, but can introduce a delay when starting the swipe if set too high
-        i_acceleration: .5,                      // increase the multiplier by this value, each time the user swipes again when still scrolling. The multiplier is used to multiply the offset. Set to 0 to disable.
-        i_accelerationT: 50                       // (ms) time between successive swipes that determines if the multiplier is increased (if lower than this value)
+        i_acceleration: 0.5,                      // increase the multiplier by this value, each time the user swipes again when still scrolling. The multiplier is used to multiply the offset. Set to 0 to disable.
+        i_accelerationT: 250                       // (ms) time between successive swipes that determines if the multiplier is increased (if lower than this value)
       };
       /* stop editing here */
 
