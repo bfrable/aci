@@ -7,7 +7,7 @@
 
 .panel {
   position: relative;
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   top: 0;
   color: #ffffff;
@@ -17,7 +17,7 @@
   }
 
   &.one {
-    margin-bottom: 2370px;
+    margin-bottom: 2000px;
     margin-top: 500px;
   }
 
@@ -27,6 +27,7 @@
 
   &.three {
     margin-top: -1000px;
+    margin-bottom: 600px;
   }
 
   &.four {

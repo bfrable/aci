@@ -23,7 +23,7 @@ define(['jquery'],function ($) {
 
                   return false;
 
-              $window.on('mousewheel DOMMouseScroll', function(e) {
+              $window.on('touchmove', function(e) {
 
                   var deltaY = e.originalEvent.wheelDeltaY,
                       detail = e.originalEvent.detail;
@@ -93,13 +93,12 @@ define(['jquery'],function ($) {
           };
 
           jQuery.easing.default = function (x,t,b,c,d) {
-
-              return -c * ((t=t/d-1)*t*t*t - 1) + b;
+              return -c * ((t=t/d-1)*t*t*t - 1) + b * t;
           };
 
       })(jQuery);
 
-      $.scrollSpeed(75, 2000);
+      $.scrollSpeed(75, 5000);
     }
   };
 });

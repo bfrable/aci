@@ -236,7 +236,7 @@ section#info {
 
 .panel {
   position: relative;
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   top: 0;
   color: #ffffff; }
@@ -244,12 +244,13 @@ section#info {
     .panel {
       width: 50%; } }
   .panel.one {
-    margin-bottom: 2370px;
+    margin-bottom: 2000px;
     margin-top: 500px; }
   .panel.two {
     margin-bottom: 1000px; }
   .panel.three {
-    margin-top: -1000px; }
+    margin-top: -1000px;
+    margin-bottom: 600px; }
   .panel.four {
     margin-bottom: 4000px; }
   .panel.five {
