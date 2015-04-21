@@ -218,15 +218,9 @@ section#info {
   position: fixed;
   bottom: 0;
   height: 100%; }
-  @media screen and (max-width: 630px) {
-    #canvas {
-      display: none; } }
 
 #canvas-content {
   height: 56000px; }
-  @media screen and (max-width: 630px) {
-    #canvas-content {
-      height: auto; } }
 
 #canvas-content {
   position: relative;
