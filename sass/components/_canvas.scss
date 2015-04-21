@@ -2,14 +2,14 @@
   position: fixed;
   bottom: 0;
   height: 100%;
-  @include max-screen(630px) {
-    //display: none;
+  
+  @include max-screen(768px) {
+    -webkit-overflow-scrolling: touch;
+    overflow: scroll;
   }
+  
 }
 
 #canvas-content {
   height: 56000px;
-  @include max-screen(630px) {
-    //height: auto;
-  }
 }

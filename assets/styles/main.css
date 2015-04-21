@@ -218,6 +218,10 @@ section#info {
   position: fixed;
   bottom: 0;
   height: 100%; }
+  @media screen and (max-width: 768px) {
+    #canvas {
+      -webkit-overflow-scrolling: touch;
+      overflow: scroll; } }
 
 #canvas-content {
   height: 56000px; }
