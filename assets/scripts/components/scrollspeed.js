@@ -98,7 +98,7 @@ define(['jquery'],function ($) {
 
       })(jQuery);
 
-      $.scrollSpeed(75, 5000);
+      $.scrollSpeed(22, 250);
 
     }
   };
