@@ -32,17 +32,17 @@ define(['jquery'],function ($) {
               $('.popout').fadeOut();
             }
 
-            if (currentFrame >= 180 && currentFrame <=210 && $('.popout.one').is(':hidden')) {    
+            if (currentFrame >= 230 && currentFrame <=260 && $('.popout.one').is(':hidden')) {    
               $('.popout').fadeOut();
               $('.popout.one').fadeIn(); 
             }
 
-            if (currentFrame >= 210 && currentFrame <= 280 && $('.popout.two').is(':hidden')) {
+            if (currentFrame >= 260 && currentFrame <= 290 && $('.popout.two').is(':hidden')) {
               $('.popout').fadeOut();
               $('.popout.two').fadeIn(); 
             }
 
-            if (currentFrame >= 280 && currentFrame <= 330 && $('.popout.three').is(':hidden')) {
+            if (currentFrame >= 290 && currentFrame <= 330 && $('.popout.three').is(':hidden')) {
               $('.popout').fadeOut();
               $('.popout.three').fadeIn();
             }

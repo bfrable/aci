@@ -7,9 +7,14 @@
 
 .panel {
   position: relative;
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
   top: 0;
   color: #ffffff;
+
+  @include max-screen(1080px) {
+    width: 50%;
+  }
 
   &.one {
     margin-bottom: 2370px;
@@ -32,6 +37,15 @@
     margin-top: -4000px;
   }
 
+  @include max-screen(630px) {
+    display: none;
+    width: 100%;
+    background: rgb(255, 192, 203);
+    &.one, &.two, &.three, &.four, &.five, &.six {
+      margin: 0;
+    }
+  }
+
   h2 {
     position: absolute;
     bottom: 5%;
@@ -40,5 +54,10 @@
     color: #1c87c9;
     text-transform: uppercase;
     text-align: center;
+    @include max-screen(630px) {
+      @include vertical-align();
+      width: 80%;
+      margin: 0 auto;
+    }
   }
 }

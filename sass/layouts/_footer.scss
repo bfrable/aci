@@ -13,8 +13,9 @@ footer {
   height: 100px;
   h1 {
     background: transparent url('../../images/upball.png') 0 0 no-repeat;
-    background-size: contain;
-    height: 217px; 
+    height: 217px;
+    background-size: 90%;
+    background-position: top right;
   }
   a {
     display: block;

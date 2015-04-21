@@ -7,24 +7,46 @@
         margin: 50px 0 0 0px;
         left: 10px;
         top: 150px;
+        @include max-screen(1080px) {
+            margin: 160px 0 0;
+            width: 40%;
+        }
         .dot {
             left: 105%;
             top: 0;
+            @include max-screen(1080px) {
+                left: 45%;
+                top: -80px;
+            }
         }
     }
     &.two {
         left: 75%;
         top: 170px;
+        @include max-screen(1080px) {
+            left: 49%;
+            top: 290px;
+            width: 50%;
+        }
     }
     &.three {
         left: 75%;
         top: 420px;
+        @include max-screen(1080px) {
+            left: 49%;
+            top: 525px;
+            width: 50%;
+        }
     }
 
     &.two, &.three {
         .dot {
             left: -40px;
             top: 50px;
+            @include max-screen(1080px) {
+                left: 280px;
+                top: -70px;
+            }
         }
     }
 

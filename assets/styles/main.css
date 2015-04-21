@@ -101,7 +101,9 @@ header {
     header .logo h1 {
       background: transparent url("../../images/logo.png") 0 0 no-repeat;
       width: 280px;
-      height: 44px; }
+      height: 44px;
+      background-size: 80%;
+      background-position: top right; }
     header .logo a {
       display: block;
       text-indent: -8400px;
@@ -125,8 +127,9 @@ footer {
   height: 100px; }
   .upball h1 {
     background: transparent url("../../images/upball.png") 0 0 no-repeat;
-    background-size: contain;
-    height: 217px; }
+    height: 217px;
+    background-size: 90%;
+    background-position: top right; }
   .upball a {
     display: block;
     text-indent: -8400px;
@@ -204,9 +207,15 @@ section#info {
   position: fixed;
   bottom: 0;
   height: 100%; }
+  @media screen and (max-width: 630px) {
+    #canvas {
+      display: none; } }
 
 #canvas-content {
   height: 56000px; }
+  @media screen and (max-width: 630px) {
+    #canvas-content {
+      height: auto; } }
 
 #canvas-content {
   position: relative;
@@ -216,9 +225,13 @@ section#info {
 
 .panel {
   position: relative;
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
   top: 0;
   color: #ffffff; }
+  @media screen and (max-width: 1080px) {
+    .panel {
+      width: 50%; } }
   .panel.one {
     margin-bottom: 2370px;
     margin-top: 500px; }
@@ -230,6 +243,13 @@ section#info {
     margin-bottom: 4000px; }
   .panel.five {
     margin-top: -4000px; }
+  @media screen and (max-width: 630px) {
+    .panel {
+      display: none;
+      width: 100%;
+      background: pink; }
+      .panel.one, .panel.two, .panel.three, .panel.four, .panel.five, .panel.six {
+        margin: 0; } }
   .panel h2 {
     position: absolute;
     bottom: 5%;
@@ -238,6 +258,15 @@ section#info {
     color: #1c87c9;
     text-transform: uppercase;
     text-align: center; }
+    @media screen and (max-width: 630px) {
+      .panel h2 {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 80%;
+        margin: 0 auto; } }
 
 .popout {
   position: fixed;
@@ -248,18 +277,40 @@ section#info {
     margin: 50px 0 0 0px;
     left: 10px;
     top: 150px; }
+    @media screen and (max-width: 1080px) {
+      .popout.one {
+        margin: 160px 0 0;
+        width: 40%; } }
     .popout.one .dot {
       left: 105%;
       top: 0; }
+      @media screen and (max-width: 1080px) {
+        .popout.one .dot {
+          left: 45%;
+          top: -80px; } }
   .popout.two {
     left: 75%;
     top: 170px; }
+    @media screen and (max-width: 1080px) {
+      .popout.two {
+        left: 49%;
+        top: 290px;
+        width: 50%; } }
   .popout.three {
     left: 75%;
     top: 420px; }
+    @media screen and (max-width: 1080px) {
+      .popout.three {
+        left: 49%;
+        top: 525px;
+        width: 50%; } }
   .popout.two .dot, .popout.three .dot {
     left: -40px;
     top: 50px; }
+    @media screen and (max-width: 1080px) {
+      .popout.two .dot, .popout.three .dot {
+        left: 280px;
+        top: -70px; } }
   .popout a {
     color: #1c87c9;
     text-transform: uppercase;

@@ -5,18 +5,6 @@ define(['jquery'],function ($) {
   return {
     init: function() {
 
-      jQuery.fn.extend({
-        toggleText: function (a, b){
-            var isClicked = false;
-            var that = this;
-            this.click(function (){
-                if (isClicked) { that.text(a); isClicked = false; }
-                else { that.text(b); isClicked = true; }
-            });
-            return this;
-        }
-      });
-
       $('.upball').hover(function() {
         $(this).toggleClass('animated bounce');
       });
