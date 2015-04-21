@@ -4,14 +4,14 @@ header {
   right: 0;
   top: 0;
   @include clearfix;
-  @include max-screen(360px) {
+  @include max-screen(630px) {
     position: relative;
   }
 
   .logo {
     float: right;
     margin: 50px;
-    @include max-screen(360px) {
+    @include max-screen(630px) {
       float: none;
       margin: 30px auto;
     }
