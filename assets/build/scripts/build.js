@@ -44,7 +44,9 @@ define(function (require) {
         app: 'app',
         component: 'components',
         jquery: '../../vendors/jquery/dist/jquery',
-        loglevel: '../../vendors/loglevel/dist/loglevel.min'
+        loglevel: '../../vendors/loglevel/dist/loglevel.min',
+        underscore: '../../vendors/underscore/underscore-min',
+        mousewheel: '../../vendors/jquery-mousewheel/jquery.mousewheel'
     },
     shim: {
         component: {
@@ -58,7 +60,8 @@ define(function (require) {
 
         }
     ]
-};;require(['app', 'jquery'], function (app) {
+};
+;require(['app', 'jquery'], function (app) {
     'use strict';
     // use app here
     app.init();

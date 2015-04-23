@@ -5,7 +5,9 @@ var require = {
         app: 'app',
         component: 'components',
         jquery: '../../vendors/jquery/dist/jquery',
-        loglevel: '../../vendors/loglevel/dist/loglevel.min'
+        loglevel: '../../vendors/loglevel/dist/loglevel.min',
+        underscore: '../../vendors/underscore/underscore-min',
+        mousewheel: '../../vendors/jquery-mousewheel/jquery.mousewheel'
     },
     shim: {
         component: {
