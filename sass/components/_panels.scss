@@ -12,31 +12,57 @@
   &.one {
     margin-bottom: 2000px;
     margin-top: 500px;
+    @include max-screen(675px) {
+      background: transparent url('../../images/canvas/Fraud_001.jpg') 50% 0 no-repeat;
+      background-size: cover;
+    }
   }
 
   &.two {
     margin-bottom: 1000px;
+    @include max-screen(675px) {
+      background: transparent url('../../images/canvas/Fraud_169.jpg') 50% 0 no-repeat;
+      background-size: cover;
+    }
   }
 
   &.three {
     margin-top: -1000px;
     margin-bottom: 600px;
+    @include max-screen(675px) {
+      background: transparent url('../../images/canvas/Fraud_200.jpg') 50% 0 no-repeat;
+      background-size: cover;
+    }
   }
 
   &.four {
     margin-bottom: 4000px;
+    @include max-screen(675px) {
+      background: transparent url('../../images/canvas/Fraud_250.jpg') 50% 0 no-repeat;
+      background-size: cover;
+    }
   }
 
   &.five {
     margin-top: -4000px;
+    @include max-screen(675px) {
+      background: transparent url('../../images/canvas/Fraud_305.jpg') 50% 0 no-repeat;
+      background-size: cover;
+    }
   }
 
-  @include max-screen(630px) {
-    display: none;
+  &.six{
+    @include max-screen(675px) {
+      background: transparent url('../../images/canvas/Fraud_378.jpg') 50% 0 no-repeat;
+      background-size: cover;
+    }
+  }
+
+  @include max-screen(675px) {
     width: 100%;
-    background: rgb(255, 192, 203);
+    background: black;
     &.one, &.two, &.three, &.four, &.five, &.six {
-      margin: 0;
+      margin: 0 auto;
     }
   }
 
@@ -48,10 +74,11 @@
     color: #1c87c9;
     text-transform: uppercase;
     text-align: center;
-    @include max-screen(630px) {
+    @include max-screen(675px) {
       @include vertical-align();
       width: 80%;
       margin: 0 auto;
+      color: #ffffff;
     }
   }
 }

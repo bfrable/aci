@@ -1,82 +1,65 @@
-define(['jquery', 'underscore'],function ($, _) {
+define(['jquery'],function ($) {
     
   'use strict';
 
   return {
     init: function() {
 
-      // Globals:
-      var deltas = [null, null, null, null, null, null, null, null, null],
-          timer  = null,
-          lock   = 0,
-          seen   = 0;
-
-      function hasPeak() {
-          
-          if (lock > 0) {
-              lock--;
-              return false;
-          }
-          
-          if (deltas[0] == null) return false;
-          
-          if (
-              deltas[0] <  deltas[4] &&
-              deltas[1] <= deltas[4] &&
-              deltas[2] <= deltas[4] &&
-              deltas[3] <= deltas[4] &&
-              deltas[5] <= deltas[4] &&
-              deltas[6] <= deltas[4] &&
-              deltas[7] <= deltas[4] &&
-              deltas[8] <  deltas[4] 
-          ) return true;
-
-          if (
-            deltas[8] < 1000
-          ) return false
-          
-          return false;
-      }
+      var node = document.getElementById('canvas-content');
 
       (function($) {
-        
-        jQuery.scrollSpeed = function(step, speed, easing) {
 
-            var $document = $(document),
-                $window = $(window),
-                $body = $('html, body'),
-                option = easing || 'default',
-                root = 0,
-                scroll = false,
-                scrollY,
-                scrollX,
-                view;
+          function normalize_mousewheel(e) {
+            var //o = e.originalEvent,
+              o = e,
+              d = o.detail, w = o.wheelDelta,
+              n = 225, n1 = n-1;
+            
+            d = d ? w && (f = w/d) ? d/f : -d/1.35 : w/120;
+            d = d < 1 ? d < -1 ? (-Math.pow(d, 2) - n1) / n : d : (Math.pow(d, 2) + n1) / n;
+            // Delta *should* not be greater than 2...
+            e.delta = Math.min(Math.max(d / 1, -1), 1);
+            console.log(d);
+          }
 
-            if (window.navigator.msPointerEnabled)
+          function listener(e) {
+            normalize_mousewheel(e);
+            node.scrollTop -= 10 * e.delta;
+          }
 
-                return false;
+          if ('onmousewheel' in node) {
+            node.onmousewheel = function(e) {
+              e = e || window.event;
+              listener(e);
+            }
 
-            $window.on('mousewheel DOMMouseScroll', _.throttle(function(e) {
+          } else {
+            node.addEventListener('DOMMouseScroll', listener)
+          }
 
-                var deltaY = e.originalEvent.wheelDeltaY,
-                    detail = e.originalEvent.detail;
-                    scrollY = $document.height() > $window.height();
-                    scrollX = $document.width() > $window.width();
-                    scroll = true;
+          jQuery.scrollSpeed = function(step, speed, easing) {
 
-                var delta  = e.type == 'mousewheel' ? e.originalEvent.wheelDelta * -1 : 40 * e.originalEvent.detail;
+              var $document = $(document),
+                  $window = $(window),
+                  $body = $('html, body'),
+                  option = easing || 'default',
+                  root = 0,
+                  scroll = false,
+                  scrollY,
+                  scrollX,
+                  view;
 
-                console.log(delta);
+              if (window.navigator.msPointerEnabled)
 
-                if (hasPeak()) {
-                  lock = 10;
-                  seen++;
-                  console.log('Inertial Gesture Found! (' + seen + ' total)');
-                }
+                  return false;
 
-                else if ((deltas[8] == null || deltas[8] == 120) && Math.abs(delta) == 120 ||  Math.abs(delta) % 120 === 0) {
+              $window.on('mousewheel DOMMouseScroll', function(e) {
 
-                  console.log('no inertia');
+                  var deltaY = e.originalEvent.wheelDeltaY,
+                      detail = e.originalEvent.detail;
+                      scrollY = $document.height() > $window.height();
+                      scrollX = $document.width() > $window.width();
+                      scroll = true;
 
                   if (scrollY) {
 
@@ -125,45 +108,30 @@ define(['jquery', 'underscore'],function ($, _) {
                   }
 
                   return false;
-                }
 
-                deltas.shift();
-                deltas.push(Math.abs(delta));
+              }).on('scroll', function() {
 
-                clearTimeout(timer);
-                timer = setTimeout(function() {
-                    //console.log('Waiting ...');
-                }, 200);
+                  if (scrollY && !scroll) root = $window.scrollTop();
+                  if (scrollX && !scroll) root = $window.scrollLeft();
 
+              }).on('resize', function() {
 
-            }, 513)).on('scroll', _.throttle(function(e) {
-              var delta  = e.type == 'mousewheel' ? e.originalEvent.wheelDelta * -1 : 40 * e.originalEvent.detail;
+                  if (scrollY && !scroll) view = $window.height();
+                  if (scrollX && !scroll) view = $window.width();
 
-              if ((deltas[8] == null || deltas[8] == 120) && Math.abs(delta) == 120 || delta % 120 === 0 ) {
+              });
+          };
 
-                console.log(delta);
-
-                if (scrollY && !scroll) root = $window.scrollTop();
-                if (scrollX && !scroll) root = $window.scrollLeft();
-              }
-
-            }, 513)).on('resize', function(e) {
-              var delta  = e.type == 'mousewheel' ? e.originalEvent.wheelDelta * -1 : 40 * e.originalEvent.detail;
-
-              if ((deltas[8] == null || deltas[8] == 120) && Math.abs(delta) == 120) {
-                if (scrollY && !scroll) view = $window.height();
-                if (scrollX && !scroll) view = $window.width();
-              }
-            });
-        };
-
-        jQuery.easing.default = function (x,t,b,c,d) {
-            return -c * ((t=t/d-1)*t*t*t - 1) + b * t;
-        };
+          jQuery.easing.default = function (x,t,b,c,d) {
+              return -c * ((t=t/d-1)*t*t*t - 1) + b * t;
+          };
 
       })(jQuery);
+      
+      if (!navigator.userAgent.match(/(iPod|iPhone)/)) {
+        $.scrollSpeed(50, 1250);
+      }
 
-      //$.scrollSpeed(1000, 1600);
     }
   };
 });

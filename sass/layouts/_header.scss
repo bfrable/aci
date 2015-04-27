@@ -22,7 +22,7 @@ header {
       background-size: 80%;
       background-position: top right;
       @include max-screen(630px) {
-        background-position: 0 0;
+        background-position: center center;
         margin: 0 auto;
       }
     }

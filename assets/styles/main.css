@@ -113,7 +113,7 @@ header {
       background-position: top right; }
       @media screen and (max-width: 630px) {
         header .logo h1 {
-          background-position: 0 0;
+          background-position: center center;
           margin: 0 auto; } }
     header .logo a {
       display: block;
@@ -136,6 +136,9 @@ footer {
   margin: 50px;
   width: 100px;
   height: 100px; }
+  @media screen and (max-width: 675px) {
+    .upball {
+      display: none; } }
   .upball h1 {
     background: transparent url("../../images/upball.png") 0 0 no-repeat;
     height: 217px;
@@ -222,6 +225,9 @@ section#info {
     #canvas {
       -webkit-overflow-scrolling: touch;
       overflow: scroll; } }
+  @media screen and (max-width: 675px) {
+    #canvas {
+      display: none; } }
   @media screen and (max-width: 900px) {
     #canvas canvas {
       height: 100% !important; } }
@@ -232,7 +238,12 @@ section#info {
   margin: 0 auto;
   height: 56000px;
   position: absolute;
+  left: 0;
+  right: 0;
   top: 0; }
+  @media screen and (max-width: 675px) {
+    #canvas-content {
+      height: auto; } }
 
 .panel {
   position: relative;
@@ -246,22 +257,45 @@ section#info {
   .panel.one {
     margin-bottom: 2000px;
     margin-top: 500px; }
+    @media screen and (max-width: 675px) {
+      .panel.one {
+        background: transparent url("../../images/canvas/Fraud_001.jpg") 50% 0 no-repeat;
+        background-size: cover; } }
   .panel.two {
     margin-bottom: 1000px; }
+    @media screen and (max-width: 675px) {
+      .panel.two {
+        background: transparent url("../../images/canvas/Fraud_169.jpg") 50% 0 no-repeat;
+        background-size: cover; } }
   .panel.three {
     margin-top: -1000px;
     margin-bottom: 600px; }
+    @media screen and (max-width: 675px) {
+      .panel.three {
+        background: transparent url("../../images/canvas/Fraud_200.jpg") 50% 0 no-repeat;
+        background-size: cover; } }
   .panel.four {
     margin-bottom: 4000px; }
+    @media screen and (max-width: 675px) {
+      .panel.four {
+        background: transparent url("../../images/canvas/Fraud_250.jpg") 50% 0 no-repeat;
+        background-size: cover; } }
   .panel.five {
     margin-top: -4000px; }
-  @media screen and (max-width: 630px) {
+    @media screen and (max-width: 675px) {
+      .panel.five {
+        background: transparent url("../../images/canvas/Fraud_305.jpg") 50% 0 no-repeat;
+        background-size: cover; } }
+  @media screen and (max-width: 675px) {
+    .panel.six {
+      background: transparent url("../../images/canvas/Fraud_378.jpg") 50% 0 no-repeat;
+      background-size: cover; } }
+  @media screen and (max-width: 675px) {
     .panel {
-      display: none;
       width: 100%;
-      background: pink; }
+      background: black; }
       .panel.one, .panel.two, .panel.three, .panel.four, .panel.five, .panel.six {
-        margin: 0; } }
+        margin: 0 auto; } }
   .panel h2 {
     position: absolute;
     bottom: 5%;
@@ -270,7 +304,7 @@ section#info {
     color: #1c87c9;
     text-transform: uppercase;
     text-align: center; }
-    @media screen and (max-width: 630px) {
+    @media screen and (max-width: 675px) {
       .panel h2 {
         position: relative;
         top: 50%;
@@ -278,7 +312,8 @@ section#info {
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
         width: 80%;
-        margin: 0 auto; } }
+        margin: 0 auto;
+        color: #ffffff; } }
 
 .popout {
   position: fixed;

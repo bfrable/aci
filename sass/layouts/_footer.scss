@@ -11,6 +11,9 @@ footer {
   margin: 50px;
   width: 100px;
   height: 100px;
+  @include max-screen(675px) {
+    display: none;
+  }
   h1 {
     background: transparent url('../../images/upball.png') 0 0 no-repeat;
     height: 217px;

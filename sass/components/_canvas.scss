@@ -8,6 +8,10 @@
     overflow: scroll;
   }
 
+  @include max-screen(675px) { 
+    display: none;
+  }
+
   canvas {
     @include max-screen(900px) {
       height: 100% !important;
@@ -22,5 +26,10 @@
   margin: 0 auto;
   height: 56000px;
   position: absolute;
+  left: 0;
+  right: 0;
   top: 0;
+  @include max-screen(675px) {
+    height: auto;
+  }
 }
