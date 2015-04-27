@@ -14,7 +14,7 @@ define(['jquery'],function ($) {
       $(window).scroll(function () { 
 
          $('.panel').css({
-            'top' : ($(this).scrollTop()/1.2)+"px"
+            //'top' : ($(this).scrollTop()/1.2)+"px"
          }); 
 
       });

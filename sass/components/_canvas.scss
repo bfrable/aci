@@ -7,9 +7,20 @@
     -webkit-overflow-scrolling: touch;
     overflow: scroll;
   }
+
+  canvas {
+    @include max-screen(900px) {
+      height: 100% !important;
+    }
+  }
   
 }
 
 #canvas-content {
+  max-width: 1110px;
+  width: 100%;
+  margin: 0 auto;
   height: 56000px;
+  position: absolute;
+  top: 0;
 }

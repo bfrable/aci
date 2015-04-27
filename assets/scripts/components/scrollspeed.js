@@ -28,8 +28,12 @@ define(['jquery', 'underscore'],function ($, _) {
               deltas[5] <= deltas[4] &&
               deltas[6] <= deltas[4] &&
               deltas[7] <= deltas[4] &&
-              deltas[8] <  deltas[4]
+              deltas[8] <  deltas[4] 
           ) return true;
+
+          if (
+            deltas[8] < 1000
+          ) return false
           
           return false;
       }
@@ -70,7 +74,7 @@ define(['jquery', 'underscore'],function ($, _) {
                   console.log('Inertial Gesture Found! (' + seen + ' total)');
                 }
 
-                else if ((deltas[8] == null || deltas[8] == 120) && Math.abs(delta) == 120 ||  Math.abs(delta) % 120 === 0 ) {
+                else if ((deltas[8] == null || deltas[8] == 120) && Math.abs(delta) == 120 ||  Math.abs(delta) % 120 === 0) {
 
                   console.log('no inertia');
 
@@ -128,7 +132,7 @@ define(['jquery', 'underscore'],function ($, _) {
 
                 clearTimeout(timer);
                 timer = setTimeout(function() {
-                    console.log('Waiting ...');
+                    //console.log('Waiting ...');
                 }, 200);
 
 
@@ -159,7 +163,7 @@ define(['jquery', 'underscore'],function ($, _) {
 
       })(jQuery);
 
-      $.scrollSpeed(1000, 1600);
+      //$.scrollSpeed(1000, 1600);
     }
   };
 });

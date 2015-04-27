@@ -56,7 +56,7 @@ define(['jquery'],function ($) {
             if (currentFrame >= totalFrames) {
               currentFrame = totalFrames - 1;
             }
-            showPopups();
+            //showPopups();
             return render(sequence[currentFrame]);
           };
           

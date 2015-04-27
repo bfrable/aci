@@ -222,15 +222,17 @@ section#info {
     #canvas {
       -webkit-overflow-scrolling: touch;
       overflow: scroll; } }
+  @media screen and (max-width: 900px) {
+    #canvas canvas {
+      height: 100% !important; } }
 
 #canvas-content {
-  height: 56000px; }
-
-#canvas-content {
-  position: relative;
   max-width: 1110px;
   width: 100%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  height: 56000px;
+  position: absolute;
+  top: 0; }
 
 .panel {
   position: relative;
