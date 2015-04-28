@@ -1,4 +1,4 @@
-define(['jquery'],function ($) {
+define(['jquery', 'underscore'],function ($, _) {
     
   'use strict';
 
@@ -19,7 +19,6 @@ define(['jquery'],function ($) {
             d = d < 1 ? d < -1 ? (-Math.pow(d, 2) - n1) / n : d : (Math.pow(d, 2) + n1) / n;
             // Delta *should* not be greater than 2...
             e.delta = Math.min(Math.max(d / 1, -1), 1);
-            console.log(d);
           }
 
           function listener(e) {
@@ -54,64 +53,66 @@ define(['jquery'],function ($) {
                   return false;
 
               $window.on('mousewheel DOMMouseScroll', function(e) {
+                  if ($(document).scrollTop() >= 50) {
+                    console.log('test');
+                    var deltaY = e.originalEvent.wheelDeltaY,
+                        detail = e.originalEvent.detail;
+                        scrollY = $document.height() > $window.height();
+                        scrollX = $document.width() > $window.width();
+                        scroll = true;
 
-                  var deltaY = e.originalEvent.wheelDeltaY,
-                      detail = e.originalEvent.detail;
-                      scrollY = $document.height() > $window.height();
-                      scrollX = $document.width() > $window.width();
-                      scroll = true;
+                    if (scrollY) {
 
-                  if (scrollY) {
+                        view = $window.height();
 
-                      view = $window.height();
+                        if (deltaY < 0 || detail > 0)
 
-                      if (deltaY < 0 || detail > 0)
+                            root = (root + view) >= $document.height() ? root : root += step;
 
-                          root = (root + view) >= $document.height() ? root : root += step;
+                        if (deltaY > 0 || detail < 0)
 
-                      if (deltaY > 0 || detail < 0)
+                            root = root <= 0 ? 0 : root -= step;
 
-                          root = root <= 0 ? 0 : root -= step;
+                        $body.stop().animate({
 
-                      $body.stop().animate({
+                            scrollTop: root
 
-                          scrollTop: root
+                        }, speed, option, function() {
 
-                      }, speed, option, function() {
+                            scroll = false;
 
-                          scroll = false;
+                        });
+                    }
 
-                      });
+                    if (scrollX) {
+
+                        view = $window.width();
+
+                        if (deltaY < 0 || detail > 0)
+
+                            root = (root + view) >= $document.width() ? root : root += step;
+
+                        if (deltaY > 0 || detail < 0)
+
+                            root = root <= 0 ? 0 : root -= step;
+
+                        $body.stop().animate({
+
+                            scrollLeft: root
+
+                        }, speed, option, function() {
+
+                            scroll = false;
+
+                        });
+                    }
+
+                    return false;
                   }
-
-                  if (scrollX) {
-
-                      view = $window.width();
-
-                      if (deltaY < 0 || detail > 0)
-
-                          root = (root + view) >= $document.width() ? root : root += step;
-
-                      if (deltaY > 0 || detail < 0)
-
-                          root = root <= 0 ? 0 : root -= step;
-
-                      $body.stop().animate({
-
-                          scrollLeft: root
-
-                      }, speed, option, function() {
-
-                          scroll = false;
-
-                      });
-                  }
-
-                  return false;
 
               }).on('scroll', function() {
 
-                  if (scrollY && !scroll) root = $window.scrollTop();
+                  if (scrollY && !scroll) root = $('#canvas-content').scrollTop();
                   if (scrollX && !scroll) root = $window.scrollLeft();
 
               }).on('resize', function() {
@@ -123,14 +124,14 @@ define(['jquery'],function ($) {
           };
 
           jQuery.easing.default = function (x,t,b,c,d) {
-              return -c * ((t=t/d-1)*t*t*t - 1) + b * t * t;
+              return -c * ((t=t/d-1)*t*t*t - 1) + b * t;
           };
 
       })(jQuery);
       
-      if (!navigator.userAgent.match(/(iPod|iPhone)/) && $(window).width > 675) {
+      if (!navigator.userAgent.match(/(iPod|iPhone)/) && $(window).width() > 675) {
 
-        $.scrollSpeed(40, 50);
+        //$.scrollSpeed(45, 650);
 
       }
 

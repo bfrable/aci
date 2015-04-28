@@ -12,11 +12,6 @@
     <link rel="stylesheet" href="vendors/animate.css/animate.css">
     <link rel="stylesheet" href="assets/build/styles/main.min.css">
 
-    <!--CDN links for the latest TweenLite, CSSPlugin, and EasePack-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.1/ScrollMagic.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.1/plugins/animation.gsap.js"></script>
-
 </head>
 
 <body>
