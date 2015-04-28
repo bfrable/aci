@@ -75,6 +75,8 @@
 
     </div>
 
+    <?php include 'aci.php'; ?>
+
     <div id="loader"></div>
 
 </div>

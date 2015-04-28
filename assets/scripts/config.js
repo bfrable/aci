@@ -7,7 +7,8 @@ var require = {
         jquery: '../../vendors/jquery/dist/jquery',
         loglevel: '../../vendors/loglevel/dist/loglevel.min',
         underscore: '../../vendors/underscore/underscore-min',
-        mousewheel: '../../vendors/jquery-mousewheel/jquery.mousewheel'
+        mousewheel: '../../vendors/jquery-mousewheel/jquery.mousewheel',
+        scrollmagic: '../../vendors/scrollmagic/scrollmagic/minified/ScrollMagic.min'
     },
     shim: {
         component: {

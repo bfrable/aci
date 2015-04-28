@@ -9,7 +9,7 @@
   }
 
   @include max-screen(675px) { 
-    display: none;
+    display: none !important;
   }
 
   canvas {
@@ -31,5 +31,7 @@
   top: 0;
   @include max-screen(675px) {
     height: auto;
+    position: relative;
+    margin-top: -105px;
   }
 }

@@ -11,6 +11,7 @@ define(function (require) {
     components.canvas = require('components/canvas');
     components.scrollspeed = require('components/scrollspeed');
     components.helpers = require('components/helpers');
+    //components.pin = require('components/pin');
     
     // API methods
     $.extend(self, {

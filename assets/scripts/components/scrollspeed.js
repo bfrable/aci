@@ -123,13 +123,15 @@ define(['jquery'],function ($) {
           };
 
           jQuery.easing.default = function (x,t,b,c,d) {
-              return -c * ((t=t/d-1)*t*t*t - 1) + b * t;
+              return -c * ((t=t/d-1)*t*t*t - 1) + b * t * t;
           };
 
       })(jQuery);
       
-      if (!navigator.userAgent.match(/(iPod|iPhone)/)) {
-        $.scrollSpeed(50, 1250);
+      if (!navigator.userAgent.match(/(iPod|iPhone)/) && $(window).width > 675) {
+
+        $.scrollSpeed(40, 50);
+
       }
 
     }
