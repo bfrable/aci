@@ -12,28 +12,17 @@ define(['jquery'],function ($) {
       $('.panel').height($(window).height());
 
       if (!navigator.userAgent.match(/(iPod|iPhone)/) && $(window).width() > 675) {
-        $(window).scroll(function () { 
+        $(window).scroll(function () {
 
-           $('.panel').css({
-              'top' : ($(this).scrollTop()/1.2)+"px"
-           }); 
+          $('.panel').css({
+            'top' : ($(this).scrollTop()/1.2)+'px'
+          });
 
         });
       }
 
       $(window).resize(function() {
         $('.panel').height($(window).height());
-
-        if (!navigator.userAgent.match(/(iPod|iPhone)/) && $(window).width() > 675) {
-          $(window).scroll(function () { 
-
-             $('.panel').css({
-                'top' : ($(this).scrollTop()/1.2)+"px"
-             }); 
-
-          });
-        }
-
       });
 
       $(document).scroll(function(){
