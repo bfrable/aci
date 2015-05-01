@@ -6,7 +6,7 @@ define(['jquery'],function ($) {
     init: function() {
       if (!navigator.userAgent.match(/(iPod|iPhone)/)) {
         $(function() {
-          var canvas, context, currentFrame, loadImageSequence, loadedFrameCallback, render, renderCurrentFrame, resizeCanvas, sequence, totalFrames, showLoader, hideLoader, showPopups;
+          var canvas, context, currentFrame, loadImage, loadFirstHalfImageSequence, loadSecondHalfImageSequence, loadedFrameCallback, render, renderCurrentFrame, fullyLoaded, resizeCanvas, sequence, totalFrames, halfFrames, showLoader, hideLoader, showPopups;
 
           if ($('#background').length > 0) {
             
@@ -25,6 +25,8 @@ define(['jquery'],function ($) {
             context = canvas.getContext('2d');
             currentFrame = 1;
             totalFrames = 388;
+            halfFrames = Math.floor(totalFrames / 2);
+            fullyLoaded = false;
             sequence = [];
 
             showPopups = function() {
@@ -57,6 +59,12 @@ define(['jquery'],function ($) {
                 currentFrame = totalFrames - 1;
               }
               showPopups();
+
+              if (currentFrame >= 130 && !fullyLoaded) {
+                loadSecondHalfImageSequence();
+                fullyLoaded = true;
+              }
+
               return render(sequence[currentFrame]);
             };
             
@@ -79,23 +87,40 @@ define(['jquery'],function ($) {
               y = -(h - windowHeight) / 2;
               return context.drawImage(img, x, y, w, h);
             };
+
+            loadImage = function(i) {
+              var file, img, num;
+
+              img = new Image();
+              num = ("000" + i).slice(-3);
+              file = 'assets/images/canvas/Fraud_' + num + ".jpg";
+              img.src = file;
+              img.frame = i;
+              img.onload = function() {
+                return loadedFrameCallback(this);
+              };
+              sequence.push(img);
+
+              return img;
+            }
             
-            loadImageSequence = function() {
+            loadFirstHalfImageSequence = function() {
               var file, i, img, num, _i;
+              var halfFrames = totalFrames / 2;
+
               sequence = [];
-              for (i = _i = 1; 1 <= totalFrames ? _i <= totalFrames : _i >= totalFrames; i = 1 <= totalFrames ? ++_i : --_i) {
-                img = new Image();
-                num = ("000" + i).slice(-3);
-                file = 'assets/images/canvas/Fraud_' + num + ".jpg";
-                img.src = file;
-                img.frame = i;
-                img.onload = function() {
-                  return loadedFrameCallback(this);
-                };
-                sequence.push(img);
+              for (i = _i = 1; 1 <= totalFrames ? _i <= halfFrames : _i >= totalFrames; i = 1 <= totalFrames ? ++_i : --_i) {
+                loadImage(i);
               }
-              return sequence;
             };
+
+            loadSecondHalfImageSequence = function() {
+              var i;
+
+              for (i = halfFrames + 1; i <= totalFrames; ++i) {
+                loadImage(i);
+              }
+            }
 
             showLoader = function() {
               $('canvas').hide();
@@ -117,7 +142,7 @@ define(['jquery'],function ($) {
               }
             };
 
-            sequence = loadImageSequence();
+            loadFirstHalfImageSequence();
 
             $(window).resize(renderCurrentFrame);
             $(window).scroll(function() {
