@@ -60,8 +60,8 @@ define(['jquery'],function ($) {
                 stepsLeft -= 1;
                 if (stepsLeft === 0) {
                   $h2.text($fixedText.text());
-                  $fixedText.text("");
-                  $fixedText.css('bottom', '100px')
+                  $fixedText.text('');
+                  $fixedPanel.css('bottom', '100px')
                   locked = false;
                   panelIndex += 1;
                 } else {
