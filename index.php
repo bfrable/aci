@@ -34,6 +34,10 @@
             <h2>So when the scammers darken your doorstep, you’ll leave them out in the cold.</h2>
         </div>
 
+        <div class="panel fixed">
+            <h2></h2>
+        </div>
+
         <div class="popout one">
             <div class="dot">+</div>
             <div class="popout-box">

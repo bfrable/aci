@@ -58,6 +58,12 @@
     }
   }
 
+  &.fixed{
+    position: absolute;
+    bottom: 100px;
+    top: auto;
+  }
+
   @include max-screen(675px) {
     width: 100%;
     background: black;
