@@ -2,65 +2,81 @@ define(['jquery'],function ($) {
     
   'use strict';
 
-  return {
-    init: function() {
+  var userAgents      = navigator.userAgent.match(/(iPod|iPhone)/),
+      maxWidth        = $(window).width() > 675,
+      panel           = $('.panel'),
+      popoutToggle    = $('.dot'),
+      accordionHandle = $('.accordion h2');
 
-      $('.upball').hover(function() {
-        $(this).toggleClass('animated bounce');
-      });
+  var setPanelHeight = function() {
+    panel.height($(window).height());
+    
+    $(window).resize(function() {
+      panel.height($(window).height());
+    });
+  };
 
-      $('.panel').height($(window).height());
+  var parallaxText = function() {
+    $(window).scroll(function() {
+      if (!userAgents && maxWidth) {
+          if (!panel.is('.sticky')) {
+            panel.css({
+              //'top' : ($(this).scrollTop()/1.2)+"px"
+            }); 
+          }          
+      }
+    });
 
-      if (!navigator.userAgent.match(/(iPod|iPhone)/) && $(window).width() > 675) {
-        $(window).scroll(function () { 
+    $(window).resize(function() {
+      if (!userAgents && maxWidth) {
+        if (!panel.is('.sticky')) {
+          panel.css({
+            'top' : ($(this).scrollTop()/1.2)+"px"
+          }); 
+        }          
+      }
+    });
+  };
 
-           $('.panel').css({
-              'top' : ($(this).scrollTop()/1.2)+"px"
-           }); 
-
-        });
+  var togglePopouts = function() {
+    popoutToggle.on('click', function() {
+      if ($(this).text() === '+') {
+        $(this).text('-')
+      } else {
+        $(this).text('+')
       }
 
-      $(window).resize(function() {
-        $('.panel').height($(window).height());
+      $(this).next().fadeToggle();
+    });
+  };
 
-        if (!navigator.userAgent.match(/(iPod|iPhone)/) && $(window).width() > 675) {
-          $(window).scroll(function () { 
+  var accordion = function() {
+    accordionHandle.on('click', function() {
+      $(this).parent().toggleClass('show');
+    });
+  }
 
-             $('.panel').css({
-                'top' : ($(this).scrollTop()/1.2)+"px"
-             }); 
+  var hideCanvas = function() {
+    $(document).scroll(function(){
+      var el = $('#canvas'),
+          top = $('#info .logo').offset().top - $(document).scrollTop();
+      
+      if (top < 300 && el.is(':visible')){
+        $(el).css('display', 'none');
+      }
+      if (top > 300 && el.is(':hidden')){
+        $(el).css('display', 'block');
+      }  
+    });
+  }
 
-          });
-        }
-
-      });
-
-      $(document).scroll(function(){
-          var el = $('#canvas'),
-              top = $('#info .logo').offset().top - $(document).scrollTop();
-          if (top < 300 && el.is(':visible')){
-              $(el).css('display', 'none');
-              $('header .logo').hide();
-              $('footer .upball').hide();
-          }
-          if (top > 300 && el.is(':hidden')){
-              $(el).css('display', 'block');
-              $('header .logo').show();
-              $('footer .upball').show();
-          }  
-      });
-
-      $('.dot').on('click', function() {
-          
-          if ($(this).text() === '+') {
-            $(this).text('-')
-          } else {
-            $(this).text('+')
-          }
-
-          $(this).next().fadeToggle();
-      });
+  return {
+    init: function() {
+      setPanelHeight();
+      togglePopouts();
+      accordion();
+      hideCanvas();
+      parallaxText();
     }
   };
 });
