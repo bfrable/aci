@@ -16,34 +16,59 @@ define(['jquery'],function ($) {
       });
 
       var $panels = $('.panel:not(.fixed)');
+      var $fixedPanel = $('.panel.fixed');
+      var $fixedText = $('.panel.fixed h2');
 
-      $panels.height($(window).height());
-      $('.panel.fixed h2').width($('.panel h2').eq(1).width());
-      $('.panel.fixed').css('left', $('.panel h2').eq(1).offset().left);
+      function onResize() {
+        $panels.height($(window).height());
+        $fixedText.width($('.panel h2').eq(1).width());
+        $fixedPanel.css('left', $('.panel h2').eq(1).offset().left);
+      }
+      $(window).resize(onResize);
+      onResize();
 
       if (!navigator.userAgent.match(/(iPod|iPhone)/) && $(window).width() > 675) {
         var $canvasContent = $('#canvas-content');
-        var $fixedText = $('.panel.fixed h2');
 
         var locked = false;
         var panelIndex = 0;
 
         $(window).scroll(function panelScrollHandler () {
-          var $h2 = $('h2', $panels.eq(panelIndex));
+          var $h2;
+          
+          $h2 = $('h2', $panels.eq(panelIndex));
           if (!locked && $h2.length && pixelsToFooter($h2) > 100) {
+            console.log(panelIndex, "hit");
             locked = true;
-            var $textToLock = $('h2', $panels.eq(panelIndex));
 
-            $fixedText.text($textToLock.text());
-            $textToLock.text("");
+            $fixedText.text($h2.text());
+            $h2.text('');
 
-            setTimeout(function () {
-              locked = false;
-              $textToLock.text($fixedText.text());
-              $fixedText.text("");
+            setTimeout(function() {
+              var stepsLeft = 100;
+
+              setTimeout(function step() {
+                var deltaHeight, currentBottom;
+
+                currentBottom = Number($fixedPanel.css('bottom').slice(0, -2));
+                deltaHeight = pixelsToFooter($h2) - currentBottom;
+
+                $fixedPanel.css({
+                  'bottom': (currentBottom + (deltaHeight / stepsLeft)) + 'px'
+                });
+
+                stepsLeft -= 1;
+                if (stepsLeft === 0) {
+                  $h2.text($fixedText.text());
+                  $fixedText.text("");
+                  $fixedText.css('bottom', '100px')
+                  locked = false;
+                  panelIndex += 1;
+                } else {
+                  setTimeout(step, 10);
+                }
+              }, 20);
             }, 5e3);
-
-            panelIndex += 1;
           }
 
           $canvasContent.css({
@@ -52,12 +77,6 @@ define(['jquery'],function ($) {
 
         });
       }
-
-      $(window).resize(function() {
-        $panels.height($(window).height());
-        $('.panel.fixed h2').width($('.panel h2').eq(1).width());
-        $('.panel.fixed').css('left', $('.panel h2').eq(1).offset().left);
-      });
 
       $(document).scroll(function(){
           var el = $('#canvas'),
