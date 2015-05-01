@@ -1,25 +1,48 @@
 .panel {
   position: relative;
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   top: 0;
   color: #ffffff;
 
   @include max-screen(1080px) {
-    width: 50%;
+    width: 70%;
+  }
+
+  & {
+    margin-bottom: 6000px;
+  }
+
+  &.two {
+    margin-bottom: 6000px;
+  }
+
+  &.three {
+    margin-bottom: 7000px;
+  }
+
+  &.six {
+    margin-bottom: 6500px;
+  }
+
+  &.seven {
+    margin-bottom: 6000px;
+  }
+  
+  &.eight {
+    margin-bottom: 500px;
   }
 
   &.one {
-    margin-bottom: 2000px;
-    margin-top: 500px;
+    margin-top: 1000px;
     @include max-screen(675px) {
       background: transparent url('../../images/canvas/Fraud_001.jpg') 50% 0 no-repeat;
       background-size: cover;
     }
   }
+  
 
   &.two {
-    margin-bottom: 1000px;
     @include max-screen(675px) {
       background: transparent url('../../images/canvas/Fraud_169.jpg') 50% 0 no-repeat;
       background-size: cover;
@@ -27,8 +50,6 @@
   }
 
   &.three {
-    margin-top: -1000px;
-    margin-bottom: 600px;
     @include max-screen(675px) {
       background: transparent url('../../images/canvas/Fraud_200.jpg') 50% 0 no-repeat;
       background-size: cover;
@@ -36,7 +57,6 @@
   }
 
   &.four {
-    margin-bottom: 4000px;
     @include max-screen(675px) {
       background: transparent url('../../images/canvas/Fraud_250.jpg') 50% 0 no-repeat;
       background-size: cover;
@@ -44,7 +64,7 @@
   }
 
   &.five {
-    margin-top: -4000px;
+    margin-top:-600px;
     @include max-screen(675px) {
       background: transparent url('../../images/canvas/Fraud_305.jpg') 50% 0 no-repeat;
       background-size: cover;
@@ -52,16 +72,27 @@
   }
 
   &.six{
+    margin-top:-600px;
     @include max-screen(675px) {
       background: transparent url('../../images/canvas/Fraud_378.jpg') 50% 0 no-repeat;
       background-size: cover;
     }
   }
-
-  &.fixed{
-    position: fixed;
-    bottom: 100px;
-    top: auto;
+  
+  &.seven{
+    margin-top:-600px;
+    @include max-screen(675px) {
+      background: transparent url('../../images/canvas/Fraud_378.jpg') 50% 0 no-repeat;
+      background-size: cover;
+    }
+  }
+  
+  &.eight{
+    margin-top:-700px;
+    @include max-screen(675px) {
+      background: transparent url('../../images/canvas/Fraud_378.jpg') 50% 0 no-repeat;
+      background-size: cover;
+    }
   }
 
   @include max-screen(675px) {
@@ -77,9 +108,13 @@
     bottom: 5%;
     width: 100%;
     max-width: 1110px;
-    color: #1c87c9;
+    color: #FFF;
     text-transform: uppercase;
     text-align: center;
+    @include default(24px, 27px);
+    @include max-screen(1024px) {
+      @include default(18px, 22px);
+    }
     @include max-screen(675px) {
       @include vertical-align();
       width: 80%;

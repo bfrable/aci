@@ -9,9 +9,9 @@ define(function (require) {
         self = {};
 
     components.canvas = require('components/canvas');
-    components.scrollspeed = require('components/scrollspeed');
+    components.scrolling = require('components/scrolling');
     components.helpers = require('components/helpers');
-    //components.pin = require('components/pin');
+    components.pin = require('components/pin');
     
     // API methods
     $.extend(self, {
@@ -47,8 +47,8 @@ define(function (require) {
         jquery: '../../vendors/jquery/dist/jquery',
         loglevel: '../../vendors/loglevel/dist/loglevel.min',
         underscore: '../../vendors/underscore/underscore-min',
-        mousewheel: '../../vendors/jquery-mousewheel/jquery.mousewheel',
-        scrollmagic: '../../vendors/scrollmagic/scrollmagic/minified/ScrollMagic.min'
+        scrollmagic: '../../vendors/scrollmagic/scrollmagic/minified/ScrollMagic.min',
+        scrollspeed: '../../assets/scripts/dependencies/scrollspeed',
     },
     shim: {
         component: {

@@ -9,9 +9,9 @@ define(function (require) {
         self = {};
 
     components.canvas = require('components/canvas');
-    components.scrollspeed = require('components/scrollspeed');
+    components.scrolling = require('components/scrolling');
     components.helpers = require('components/helpers');
-    //components.pin = require('components/pin');
+    components.pin = require('components/pin');
     
     // API methods
     $.extend(self, {
